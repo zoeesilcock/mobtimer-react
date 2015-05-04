@@ -1,0 +1,12 @@
+node_modules/*
+bower_components/*
+.sass-cache/*
+
+tmp/app.js
+tmp/main.css
+tmp/main.css.map
+
+public/app.js
+public/app.min.js
+public/main.css
+public/main.css.map
