@@ -5,7 +5,7 @@ class Person extends React.Component {
     return (
       <li>
         <a href="#">x</a>
-        <span>Some person</span>
+        <span>{this.props.name}</span>
       </li>
     );
   }

@@ -7,13 +7,22 @@ import Timer from './components/timer';
 import Interval from './components/interval';
 import People from './components/people';
 
+// Stores
+import PeopleStore from './stores/people_store';
+
 const App = React.createClass({
   mixins: [
+    Reflux.listenTo(PeopleStore, 'onPeopleChange')
   ],
 
   getInitialState() {
     return {
+      people: []
     };
+  },
+
+  onPeopleChange(people) {
+    this.setState({ people: people });
   },
 
   render() {
@@ -23,7 +32,7 @@ const App = React.createClass({
         <Message />
         <Timer />
         <Interval />
-        <People />
+        <People people={this.state.people} />
       </div>
     );
   }
