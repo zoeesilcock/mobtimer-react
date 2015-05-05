@@ -9,15 +9,18 @@ import People from './components/people';
 
 // Stores
 import PeopleStore from './stores/people_store';
+import TimerStore from './stores/timer_store';
 
 const App = React.createClass({
   mixins: [
-    Reflux.listenTo(PeopleStore, 'onPeopleChange')
+    Reflux.listenTo(PeopleStore, 'onPeopleChange'),
+    Reflux.listenTo(TimerStore, 'onTimerChange')
   ],
 
   getInitialState() {
     return {
-      people: PeopleStore.getPeople()
+      people: PeopleStore.getPeople(),
+      timer: TimerStore.getTimer()
     };
   },
 
@@ -25,13 +28,17 @@ const App = React.createClass({
     this.setState({ people: PeopleStore.getPeople() });
   },
 
+  onTimerChange() {
+    this.setState({ timer: TimerStore.getTimer() });
+  },
+
   render() {
     return (
       <div>
         <h1>Mob Timer</h1>
         <Message />
-        <Timer />
-        <Interval />
+        <Timer msLeft={this.state.timer.msLeft} state={this.state.timer.state} />
+        <Interval minutes={this.state.timer.minutes} state={this.state.timer.state} />
         <People people={this.state.people} />
       </div>
     );

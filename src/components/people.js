@@ -4,6 +4,10 @@ import PersonForm from './person_form';
 import PeopleActions from '../actions/people_actions';
 
 class People extends React.Component {
+  propTypes: {
+    people: React.PropTypes.array
+  }
+
   handleClick() {
     PeopleActions.shuffle();
   }
