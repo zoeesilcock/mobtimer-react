@@ -17,12 +17,12 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      people: []
+      people: PeopleStore.getPeople()
     };
   },
 
-  onPeopleChange(people) {
-    this.setState({ people: people });
+  onPeopleChange() {
+    this.setState({ people: PeopleStore.getPeople() });
   },
 
   render() {

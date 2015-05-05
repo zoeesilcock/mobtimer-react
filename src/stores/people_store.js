@@ -8,21 +8,25 @@ var Store = Reflux.createStore({
     this.people = [];
   },
 
+  getPeople() {
+    return this.people;
+  },
+
   onAdd(name) {
     this.people.push(name);
-    this.trigger(this.people);
+    this.trigger();
   },
 
   onRemove(index) {
     this.people.splice(index, 1);
-    this.trigger(this.people);
+    this.trigger();
   },
 
   onShuffle() {
     this.people.sort(function(a, b) {
       return 0.5 - Math.random();
     });
-    this.trigger(this.people);
+    this.trigger();
   }
 });
 
