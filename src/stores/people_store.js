@@ -16,6 +16,13 @@ var Store = Reflux.createStore({
   onRemove(index) {
     this.people.splice(index, 1);
     this.trigger(this.people);
+  },
+
+  onShuffle() {
+    this.people.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+    this.trigger(this.people);
   }
 });
 

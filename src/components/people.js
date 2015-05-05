@@ -1,8 +1,13 @@
 import React from 'react';
 import Person from './person';
 import PersonForm from './person_form';
+import PeopleActions from '../actions/people_actions';
 
 class People extends React.Component {
+  handleClick() {
+    PeopleActions.shuffle();
+  }
+
   render() {
     var people = [];
     this.props.people.map(function(name, index) {
@@ -15,7 +20,7 @@ class People extends React.Component {
         <ul>
           {people}
         </ul>
-        <button>shuffle</button>
+        <button onClick={this.handleClick.bind(this)}>shuffle</button>
         <PersonForm />
       </div>
     );
