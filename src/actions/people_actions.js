@@ -1,7 +1,8 @@
 import Reflux from 'reflux';
 
 var Actions = Reflux.createActions([
-  'add'
+  'add',
+  'remove'
 ]);
 
 export default Actions;

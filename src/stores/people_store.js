@@ -11,6 +11,11 @@ var Store = Reflux.createStore({
   onAdd(name) {
     this.people.push(name);
     this.trigger(this.people);
+  },
+
+  onRemove(index) {
+    this.people.splice(index, 1);
+    this.trigger(this.people);
   }
 });
 
