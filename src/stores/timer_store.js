@@ -18,31 +18,50 @@ var Store = Reflux.createStore({
     return this.data;
   },
 
+  // Actions
+
   onStart() {
+    if (this.data.state == 'idle') {
+      this.data.end = Moment().add(this.data.minutes, 'minutes');
+    } else {
+      this.data.end = Moment().add(this.data.msLeft, 'milliseconds');
+    }
+
     this.data.state = 'running';
-    this.data.end = Moment().add(this.data.minutes, 'minutes');
     this.updateTimeLeft();
     this.trigger();
   },
 
   onPause() {
     this.data.state = 'paused';
+    this.stopSchedule();
     this.trigger();
   },
 
   onReset() {
     this.data.state = 'idle';
+    this.data.end = Moment().add(this.data.minutes, 'minutes');
+    this.updateTimeLeft();
     this.trigger();
   },
 
+  // Internal
+
   scheduleUpdate() {
-    window.setTimeout(this.updateTimeLeft, 1000);
+    this.timeout = window.setTimeout(this.updateTimeLeft, 1000);
+  },
+
+  stopSchedule() {
+    if (this.timeout) {
+      window.clearTimeout(this.timeout);
+    }
   },
 
   updateTimeLeft() {
+    this.data.msLeft = this.data.end.diff(Moment(), 'milliseconds');
+    this.trigger();
+
     if (this.data.state == 'running') {
-      this.data.msLeft = this.data.end.diff(Moment(), 'milliseconds');
-      this.trigger();
       this.scheduleUpdate();
     }
   }
