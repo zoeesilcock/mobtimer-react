@@ -3,7 +3,8 @@ import Reflux from 'reflux';
 var Actions = Reflux.createActions([
   'add',
   'remove',
-  'shuffle'
+  'shuffle',
+  'nextDriver'
 ]);
 
 export default Actions;

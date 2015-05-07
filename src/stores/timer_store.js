@@ -1,13 +1,14 @@
 import Reflux from 'reflux';
 import Moment from 'moment';
 import Actions from '../actions/timer_actions';
+import PeopleActions from '../actions/people_actions';
 
 var Store = Reflux.createStore({
   listenables: Actions,
 
   init() {
     this.data = {
-      minutes: 30,
+      minutes: 0.1,
       msLeft: 0,
       end: 0,
       state: 'idle' // idle -> running -> paused
@@ -61,9 +62,18 @@ var Store = Reflux.createStore({
     this.data.msLeft = this.data.end.diff(Moment(), 'milliseconds');
     this.trigger();
 
+    if (this.data.msLeft <= 0) {
+      this.timerEnded();
+    }
+
     if (this.data.state == 'running') {
       this.scheduleUpdate();
     }
+  },
+
+  timerEnded() {
+    this.onReset();
+    PeopleActions.nextDriver();
   }
 });
 

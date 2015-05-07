@@ -6,10 +6,15 @@ var Store = Reflux.createStore({
 
   init() {
     this.people = [];
+    this.currentDriverIndex = 0;
   },
 
   getPeople() {
     return this.people;
+  },
+
+  getCurrentDriverIndex() {
+    return this.currentDriverIndex;
   },
 
   onAdd(name) {
@@ -26,6 +31,14 @@ var Store = Reflux.createStore({
     this.people.sort(function(a, b) {
       return 0.5 - Math.random();
     });
+    this.trigger();
+  },
+
+  onNextDriver() {
+    this.currentDriverIndex += 1;
+    if (this.currentDriverIndex >= this.people.length) {
+      this.currentDriverIndex = 0;
+    }
     this.trigger();
   }
 });

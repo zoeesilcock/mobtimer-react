@@ -5,7 +5,8 @@ import PeopleActions from '../actions/people_actions';
 
 class People extends React.Component {
   propTypes: {
-    people: React.PropTypes.array
+    people: React.PropTypes.array,
+    currentDriverIndex: React.PropTypes.number
   }
 
   handleClick() {
@@ -15,13 +16,15 @@ class People extends React.Component {
   render() {
     var people = [];
     this.props.people.map(function(name, index) {
-      people.push(<Person key={index} index={index} name={name} />);
-    });
+      var isCurrent = index == this.props.currentDriverIndex;
+
+      people.push(<Person key={index} index={index} name={name} isCurrent={isCurrent} />);
+    }.bind(this));
 
     return (
       <div>
         <h2>people</h2>
-        <ul>
+        <ul className="people">
           {people}
         </ul>
         <button onClick={this.handleClick.bind(this)}>shuffle</button>

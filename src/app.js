@@ -20,12 +20,15 @@ const App = React.createClass({
   getInitialState() {
     return {
       people: PeopleStore.getPeople(),
+      currentDriverIndex: PeopleStore.getCurrentDriverIndex(),
       timer: TimerStore.getTimer()
     };
   },
 
   onPeopleChange() {
-    this.setState({ people: PeopleStore.getPeople() });
+    this.setState({ people: PeopleStore.getPeople(),
+                    currentDriverIndex: PeopleStore.getCurrentDriverIndex()
+    });
   },
 
   onTimerChange() {
@@ -39,7 +42,7 @@ const App = React.createClass({
         <Message />
         <Timer msLeft={this.state.timer.msLeft} state={this.state.timer.state} />
         <Interval minutes={this.state.timer.minutes} state={this.state.timer.state} />
-        <People people={this.state.people} />
+        <People people={this.state.people} currentDriverIndex={this.state.currentDriverIndex} />
       </div>
     );
   }
