@@ -13,6 +13,10 @@ var Store = Reflux.createStore({
     return this.people;
   },
 
+  getCurrentDriver() {
+    return this.people[this.currentDriverIndex];
+  },
+
   getCurrentDriverIndex() {
     return this.currentDriverIndex;
   },
