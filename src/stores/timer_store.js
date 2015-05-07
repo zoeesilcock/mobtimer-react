@@ -8,7 +8,7 @@ var Store = Reflux.createStore({
 
   init() {
     this.data = {
-      minutes: 0.1,
+      minutes: 30,
       msLeft: 0,
       end: 0,
       state: 'idle' // idle -> running -> paused
@@ -43,6 +43,11 @@ var Store = Reflux.createStore({
     this.data.state = 'idle';
     this.data.end = Moment().add(this.data.minutes, 'minutes');
     this.updateTimeLeft();
+    this.trigger();
+  },
+
+  onMinutesChanged(minutes) {
+    this.data.minutes = minutes;
     this.trigger();
   },
 

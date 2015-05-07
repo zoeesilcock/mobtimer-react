@@ -3,7 +3,8 @@ import Reflux from 'reflux';
 var Actions = Reflux.createActions([
   'start',
   'pause',
-  'reset'
+  'reset',
+  'minutesChanged'
 ]);
 
 export default Actions;
