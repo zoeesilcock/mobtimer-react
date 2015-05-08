@@ -11,7 +11,7 @@ class Interval extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" defaultValue={this.props.minutes} onChange={this.handleChange.bind(this)} />
+        <input type="number" className="minutes" defaultValue={this.props.minutes} onChange={this.handleChange.bind(this)} />
         <TimerControl state={this.props.state} />
       </div>
     );

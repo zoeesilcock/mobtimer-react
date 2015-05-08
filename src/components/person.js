@@ -14,7 +14,7 @@ class Person extends React.Component {
 
     return (
       <li className={classes}>
-        <a href="#" onClick={this.handleClick.bind(this)}>x</a>
+        <a href="#" className="remove" onClick={this.handleClick.bind(this)}>x</a>
         <span>{this.props.name}</span>
       </li>
     );

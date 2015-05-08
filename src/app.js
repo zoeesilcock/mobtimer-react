@@ -40,7 +40,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1>Mob Timer</h1>
+        <h1>mob timer</h1>
         <Message timerState={this.state.timer.state} currentDriver={this.state.currentDriver} />
         <Timer msLeft={this.state.timer.msLeft} state={this.state.timer.state} />
         <Interval minutes={this.state.timer.minutes} state={this.state.timer.state} />

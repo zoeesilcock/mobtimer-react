@@ -8,7 +8,7 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <div>{this.formatTime()}</div>
+      <div className="timer">{this.formatTime()}</div>
     );
   }
 };

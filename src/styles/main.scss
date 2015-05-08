@@ -1,8 +1,35 @@
-.people {
-  list-style: none;
-  padding: 0;
+@import "variables";
 
-  li.active {
-    font-weight: bold;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: $darker;
+  height: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  font-weight: normal;
+  margin: 20px 0;
+}
+
+button {
+  background: $dark;
+  border-radius: 2px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  &:hover {
+    background: darken($dark, 10%);
   }
 }
+
+input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+@import "timer";
+@import "people";

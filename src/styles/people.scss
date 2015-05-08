@@ -1,0 +1,39 @@
+@import "variables";
+
+.people {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+
+  li {
+    padding: 5px;
+    margin: 0 20px;
+    background: $light;
+    position: relative;
+
+    &.active {
+      background: $dark;
+      font-weight: bold;
+    }
+
+    &:first-of-type {
+      border-radius: 2px 2px 0 0;
+    }
+
+    &:last-of-type {
+      border-radius: 0 0 2px 2px;
+    }
+
+    .remove {
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      color: $darker;
+    }
+  }
+}
+
+.people-form {
+  padding: 20px;
+}
