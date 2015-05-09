@@ -5,8 +5,8 @@ import PeopleActions from '../actions/people_actions';
 
 class People extends React.Component {
   propTypes: {
-    people: React.PropTypes.array,
-    currentDriverIndex: React.PropTypes.number
+    people: React.PropTypes.array.isRequired,
+    currentDriverIndex: React.PropTypes.number.isRequired
   }
 
   handleClick() {

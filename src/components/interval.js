@@ -4,6 +4,11 @@ import PeopleActions from '../actions/people_actions';
 import TimerActions from '../actions/timer_actions';
 
 class Interval extends React.Component {
+  propTypes: {
+    mintes: React.PropTypes.number,
+    state: React.PropTypes.string.isRequired
+  }
+
   handleChange(event) {
     TimerActions.minutesChanged(event.target.value);
   }

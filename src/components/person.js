@@ -3,6 +3,10 @@ import PeopleActions from '../actions/people_actions';
 import ClassNames from 'classnames';
 
 class Person extends React.Component {
+  propTypes: {
+    name: React.PropTypes.string.isRequired
+  }
+
   handleClick() {
     PeopleActions.remove(this.props.index);
   }
