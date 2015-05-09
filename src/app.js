@@ -12,10 +12,10 @@ import PeopleStore from './stores/people_store';
 import TimerStore from './stores/timer_store';
 
 const App = React.createClass({
-  mixins: [
-    Reflux.listenTo(PeopleStore, 'onPeopleChange'),
-    Reflux.listenTo(TimerStore, 'onTimerChange')
-  ],
+  componentWillMount() {
+    PeopleStore.listen(this.onPeopleChange);
+    TimerStore.listen(this.onTimerChange);
+  },
 
   getInitialState() {
     return {
