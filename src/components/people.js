@@ -27,7 +27,7 @@ class People extends React.Component {
         <ul className="people">
           {people}
         </ul>
-        <button onClick={this.handleClick.bind(this)}>shuffle</button>
+        <button onClick={this.handleClick.bind(this)}>Shuffle</button>
         <PersonForm />
       </div>
     );

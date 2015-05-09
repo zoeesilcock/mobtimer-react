@@ -27,7 +27,7 @@ class PersonForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className="people-form">
         <input type="text" ref="nameInput" onChange={this.handleChange.bind(this)} value={this.state.name} />
-        <button type="submit">add</button>
+        <button type="submit">Add</button>
       </form>
     );
   }
