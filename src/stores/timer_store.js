@@ -2,13 +2,14 @@ import Reflux from 'reflux';
 import Moment from 'moment';
 import Actions from '../actions/timer_actions';
 import PeopleActions from '../actions/people_actions';
+var Storage = window.localStorage;
 
 var Store = Reflux.createStore({
   listenables: Actions,
 
   init() {
     this.data = {
-      minutes: 30,
+      minutes: this.loadMinutes(),
       msLeft: 0,
       end: 0,
       state: 'idle' // idle -> running -> paused
@@ -48,6 +49,7 @@ var Store = Reflux.createStore({
 
   onMinutesChanged(minutes) {
     this.data.minutes = minutes;
+    this.commitMinutes();
     this.trigger();
   },
 
@@ -79,6 +81,16 @@ var Store = Reflux.createStore({
   timerEnded() {
     this.onReset();
     PeopleActions.nextDriver();
+  },
+
+  // Internal
+  loadMinutes() {
+    var minutes = Storage.getItem('minutes');
+    return minutes != null ? minutes : 30;
+  },
+
+  commitMinutes() {
+    Storage.setItem('minutes', this.data.minutes);
   }
 });
 
