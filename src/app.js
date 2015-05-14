@@ -6,6 +6,7 @@ import Message from './components/message';
 import Timer from './components/timer';
 import Interval from './components/interval';
 import People from './components/people';
+import AudioNotification from './components/audio_notification';
 
 // Stores
 import PeopleStore from './stores/people_store';
@@ -46,6 +47,7 @@ const App = React.createClass({
         <Interval minutes={this.state.timer.minutes} state={this.state.timer.state} />
         <People people={this.state.people} currentDriverIndex={this.state.currentDriverIndex} />
         <a href="https://github.com/zoeesilcock/mobtimer-react" target="blank" className="github"><img src="images/github_mark.png" />github</a>
+        <AudioNotification playNotification={this.state.timer.playNotification} />
       </div>
     );
   }

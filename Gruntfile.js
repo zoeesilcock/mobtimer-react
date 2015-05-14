@@ -13,17 +13,37 @@ module.exports = function(grunt) {
     // Images
     copy: {
       dev: {
-        expand: true,
-        cwd: 'images',
-        src: '**/*',
-        dest: 'tmp/images'
+        files: [
+          {
+            expand: true,
+            cwd: 'images',
+            src: '**/*',
+            dest: 'tmp/images'
+          },
+          {
+            expand: true,
+            cwd: 'audio',
+            src: '**/*',
+            dest: 'tmp/audio'
+          },
+        ],
       },
       dist: {
-        expand: true,
-        cwd: 'images',
-        src: '**/*',
-        dest: 'public/images'
-      }
+        files: [
+          {
+            expand: true,
+            cwd: 'images',
+            src: '**/*',
+            dest: 'public/images'
+          },
+          {
+            expand: true,
+            cwd: 'audio',
+            src: '**/*',
+            dest: 'public/audio'
+          },
+        ],
+      },
     },
     // Sass
     sass: {

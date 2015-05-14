@@ -6,9 +6,11 @@ tmp/app.js
 tmp/main.css
 tmp/main.css.map
 tmp/images
+tmp/audio
 
 public/app.js
 public/app.min.js
 public/main.css
 public/main.css.map
 public/images
+public/audio

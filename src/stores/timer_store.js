@@ -12,6 +12,7 @@ var Store = Reflux.createStore({
       minutes: this.loadMinutes(),
       msLeft: 0,
       end: 0,
+      playNotification: false,
       state: 'idle' // idle -> running -> paused
     };
   },
@@ -53,6 +54,11 @@ var Store = Reflux.createStore({
     this.trigger();
   },
 
+  onNotificationPlayed() {
+    this.data.playNotification = false;
+    this.trigger();
+  },
+
   // Internal
 
   scheduleUpdate() {
@@ -79,11 +85,11 @@ var Store = Reflux.createStore({
   },
 
   timerEnded() {
+    this.data.playNotification = true;
     this.onReset();
     PeopleActions.nextDriver();
   },
 
-  // Internal
   loadMinutes() {
     var minutes = Storage.getItem('minutes');
     return minutes != null ? minutes : 30;
