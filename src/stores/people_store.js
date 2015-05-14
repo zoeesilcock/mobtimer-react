@@ -39,9 +39,14 @@ var Store = Reflux.createStore({
   },
 
   onShuffle() {
-    this.people.sort(function(a, b) {
-      return 0.5 - Math.random();
-    });
+    var previousPeople = this.people.toString();
+
+    while (this.people.toString() == previousPeople) {
+      this.people.sort(function(a, b) {
+        return 0.5 - Math.random();
+      });
+    }
+
     this.commitPeople();
     this.trigger();
   },
