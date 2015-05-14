@@ -31,5 +31,18 @@ input {
   font-size: 16px;
 }
 
+.github {
+  color: $darker;
+  font-size: 12px;
+  float: right;
+  padding: 10px;
+
+  img {
+    width: 16px;
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+}
+
 @import "timer";
 @import "people";

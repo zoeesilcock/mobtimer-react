@@ -10,6 +10,21 @@ module.exports = function(grunt) {
         }
       }
     },
+    // Images
+    copy: {
+      dev: {
+        expand: true,
+        cwd: 'images',
+        src: '**/*',
+        dest: 'tmp/images'
+      },
+      dist: {
+        expand: true,
+        cwd: 'images',
+        src: '**/*',
+        dest: 'public/images'
+      }
+    },
     // Sass
     sass: {
       dev: {
@@ -41,8 +56,8 @@ module.exports = function(grunt) {
     // Watch
     watch: {
       app: {
-        files: ['src/**/*.js', 'src/**/*.scss'],
-        tasks: ['browserify:dev', 'sass:dev']
+        files: ['src/**/*.js', 'src/**/*.scss', 'images/**/*'],
+        tasks: ['browserify:dev', 'sass:dev', 'copy:dev']
       },
       options: {
         livereload: true,
@@ -79,6 +94,7 @@ module.exports = function(grunt) {
     grunt.task.run([
       'connect:livereload',
       'sass:dev',
+      'copy:dev',
       'browserify:dev',
       'open',
       'watch:app'
@@ -88,6 +104,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', function(target) {
     grunt.task.run([
       'sass:dist',
+      'copy:dist',
       'browserify:dist',
       'uglify'
     ]);
@@ -98,6 +115,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-notify');

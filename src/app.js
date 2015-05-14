@@ -45,6 +45,7 @@ const App = React.createClass({
         <Timer msLeft={this.state.timer.msLeft} state={this.state.timer.state} />
         <Interval minutes={this.state.timer.minutes} state={this.state.timer.state} />
         <People people={this.state.people} currentDriverIndex={this.state.currentDriverIndex} />
+        <a href="https://github.com/zoeesilcock/mobtimer-react" target="blank" className="github"><img src="images/github_mark.png" />github</a>
       </div>
     );
   }

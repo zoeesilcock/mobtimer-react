@@ -5,8 +5,10 @@ bower_components/*
 tmp/app.js
 tmp/main.css
 tmp/main.css.map
+tmp/images
 
 public/app.js
 public/app.min.js
 public/main.css
 public/main.css.map
+public/images
