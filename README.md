@@ -1,7 +1,8 @@
 Mob Timer React
 ===============
-A timer for keeping track of keyboard timing when mob programming. Add your
-participants to the list, pick a time interval and get to coding!
+A timer for keeping track of keyboard timing when mob programming, also works
+great for pair programming. Add your participants to the list, pick a time
+interval and get to coding!
 
 This is a rewrite of the [Mob Timer](https://github.com/zoeesilcock/mob-timer)
 I built in ember a while back. I've been hearing all this great stuff about
