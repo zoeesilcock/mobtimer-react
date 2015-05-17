@@ -62,7 +62,8 @@ var Store = Reflux.createStore({
 
   // Internal
   loadPeople() {
-    return [].concat(JSON.parse(Storage.getItem('people')));
+    var people = JSON.parse(Storage.getItem('people'));
+    return people == null ? [] : people;
   },
 
   commitPeople() {
@@ -71,7 +72,7 @@ var Store = Reflux.createStore({
 
   loadCurrentDriver() {
     var index = Storage.getItem('currentDriverIndex');
-    return index != null ? index : 0;
+    return index == null ? 0 : index;
   },
 
   commitCurrentDriver() {
