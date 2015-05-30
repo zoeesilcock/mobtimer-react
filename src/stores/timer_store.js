@@ -15,6 +15,8 @@ var Store = Reflux.createStore({
       playNotification: false,
       state: 'idle' // idle -> running -> paused
     };
+
+    this.onReset();
   },
 
   getTimer() {
@@ -44,7 +46,7 @@ var Store = Reflux.createStore({
   onReset() {
     this.data.state = 'idle';
     this.data.end = Moment().add(this.data.minutes, 'minutes');
-    this.updateTimeLeft();
+    this.data.msLeft = this.data.minutes * 60 * 1000;
     this.trigger();
   },
 
