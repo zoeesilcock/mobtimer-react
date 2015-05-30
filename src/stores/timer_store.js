@@ -64,7 +64,7 @@ var Store = Reflux.createStore({
   // Internal
 
   scheduleUpdate() {
-    this.timeout = window.setTimeout(this.updateTimeLeft, 1000);
+    this.timeout = window.setTimeout(this.updateTimeLeft, 500);
   },
 
   stopSchedule() {
