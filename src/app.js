@@ -1,3 +1,5 @@
+require('./styles/main.scss');
+
 import React from 'react';
 import Reflux from 'reflux';
 
