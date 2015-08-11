@@ -4,10 +4,11 @@ var webpackConfig = require('./webpack.config.js');
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-sftp-deploy');
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    webpack: {
+    'pkg': grunt.file.readJSON('package.json'),
+    'webpack': {
       options: webpackConfig,
       build: {
         plugins: [
@@ -39,14 +40,28 @@ module.exports = function(grunt) {
         }
       }
     },
-    open: {
+    'open': {
       default: {
         path: 'http://localhost:8080/',
         app: 'Google Chrome'
+      }
+    },
+    'sftp-deploy': {
+      build: {
+        auth: {
+          host: 'zoeetrope.com',
+          authKey: 'privateKey',
+          port: 22
+        },
+        src: 'public',
+        dest: '/home/deployer/mob-timer',
+        serverSep: '/',
+        progress: true
       }
     }
   });
 
   grunt.registerTask('default', ['webpack-dev-server:start', 'open:dev']);
   grunt.registerTask('build', ['webpack:build']);
+  grunt.registerTask('deploy', ['webpack:build', 'sftp-deploy']);
 };
