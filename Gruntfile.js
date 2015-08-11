@@ -15,7 +15,12 @@ module.exports = function(grunt) {
             }
           }),
           new webpack.optimize.DedupePlugin(),
-          new webpack.optimize.UglifyJsPlugin({minimize: true, compress: { warnings: false }})
+          new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            compress: {
+              warnings: false
+            }
+          })
         ]
       }
     },

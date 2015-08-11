@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'public'),
     publicPath: '/',
-    filename: 'app.min.js'
+    filename: 'app.js'
   },
   module: {
     loaders: [
