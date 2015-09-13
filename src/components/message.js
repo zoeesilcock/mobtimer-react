@@ -1,10 +1,6 @@
 import React from 'react';
 
 class Message extends React.Component {
-  propTypes: {
-    state: React.PropTypes.string.isRequired
-  }
-
   getMessageForState(state, driver) {
     var message = "Get ready for some mob programming!"
 
@@ -32,6 +28,10 @@ class Message extends React.Component {
       <p>{message}</p>
     );
   }
+};
+
+Message.propTypes = {
+  timerState: React.PropTypes.string.isRequired
 };
 
 export default Message;

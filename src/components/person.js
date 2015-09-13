@@ -3,10 +3,6 @@ import PeopleActions from '../actions/people_actions';
 import ClassNames from 'classnames';
 
 class Person extends React.Component {
-  propTypes: {
-    name: React.PropTypes.string.isRequired
-  }
-
   handleClick() {
     PeopleActions.remove(this.props.index);
   }
@@ -23,6 +19,10 @@ class Person extends React.Component {
       </li>
     );
   }
+};
+
+Person.propTypes = {
+  name: React.PropTypes.string.isRequired
 };
 
 export default Person;

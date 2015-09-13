@@ -5,11 +5,6 @@ import PeopleActions from '../actions/people_actions';
 import TimerActions from '../actions/timer_actions';
 
 class People extends React.Component {
-  propTypes: {
-    people: React.PropTypes.array.isRequired,
-    currentDriverIndex: React.PropTypes.number.isRequired
-  }
-
   handleClick() {
     PeopleActions.shuffle();
   }
@@ -57,6 +52,11 @@ class People extends React.Component {
       </div>
     );
   }
+};
+
+People.propTypes = {
+  people: React.PropTypes.array.isRequired,
+  currentDriverIndex: React.PropTypes.number.isRequired
 };
 
 export default People;

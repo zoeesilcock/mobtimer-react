@@ -2,10 +2,6 @@ import React from 'react';
 import TimerActions from '../actions/timer_actions';
 
 class TimerControl extends React.Component {
-  propTypes: {
-    state: React.PropTypes.string.isRequired
-  }
-
   handleStart() {
     TimerActions.start();
   }
@@ -51,6 +47,10 @@ class TimerControl extends React.Component {
       </span>
     );
   }
+};
+
+TimerControl.propTypes = {
+  state: React.PropTypes.string.isRequired
 };
 
 export default TimerControl;
