@@ -8,6 +8,8 @@ This is a rewrite of the [Mob Timer](https://github.com/zoeesilcock/mob-timer)
 I built in ember a while back. I've been hearing all this great stuff about
 React and I learn best with practice so here's me learning.
 
+http://mobtimer.zoeetrope.com
+
 Dependencies
 ------------
 
