@@ -94,7 +94,7 @@ var Store = Reflux.createStore({
 
   loadMinutes() {
     var minutes = Storage.getItem('minutes');
-    return minutes != null ? minutes : 30;
+    return minutes != null ? minutes : 5;
   },
 
   commitMinutes() {
