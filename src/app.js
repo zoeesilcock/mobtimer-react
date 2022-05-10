@@ -1,7 +1,7 @@
 require('./styles/main.scss');
 
 import React from 'react';
-import Reflux from 'reflux';
+import { render } from 'react-dom';
 
 // Components
 import Message from './components/message';
@@ -55,4 +55,4 @@ const App = React.createClass({
   }
 });
 
-React.render(<App />, document.body);
+render(<App />, document.getElementById('root'));

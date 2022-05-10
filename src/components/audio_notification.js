@@ -10,15 +10,13 @@ class AudioNotification extends React.Component {
   }
 
   play() {
-    var audio = React.findDOMNode(this.refs.audioTag);
-
-    audio.load();
-    audio.play();
+    this.audioTag.load();
+    this.audioTag.play();
   }
 
   render() {
     return (
-      <audio ref="audioTag">
+      <audio ref={(element) => this.audioTag = element}>
         <source src="audio/music_box.mp3" type="audio/mpeg" />
         <source src="audio/music_box.wav" type="audio/wav" />
       </audio>

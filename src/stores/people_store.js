@@ -71,8 +71,8 @@ var Store = Reflux.createStore({
   },
 
   loadCurrentDriver() {
-    var index = Storage.getItem('currentDriverIndex');
-    return index == null ? 0 : index;
+    var index = parseInt(Storage.getItem('currentDriverIndex'));
+    return isNaN(index) ? 0 : index;
   },
 
   commitCurrentDriver() {

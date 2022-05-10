@@ -20,13 +20,13 @@ class PersonForm extends React.Component {
     PeopleActions.add(this.state.name);
 
     this.setState({ name: '' });
-    this.refs.nameInput.getDOMNode().focus();
+    this.nameInput.focus();
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className="people-form">
-        <input type="text" ref="nameInput" onChange={this.handleChange.bind(this)} value={this.state.name} placeholder="Your name" />
+        <input type="text" ref={(element) => this.nameInput = element} onChange={this.handleChange.bind(this)} value={this.state.name} placeholder="Your name" />
         <button type="submit">Add</button>
       </form>
     );
