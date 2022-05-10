@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+var TerserPlugin = require('terser-webpack-plugin');
 var webpackConfig = require('./webpack.config.js');
 
 module.exports = function(grunt) {
@@ -11,33 +11,21 @@ module.exports = function(grunt) {
     'webpack': {
       options: webpackConfig,
       build: {
-        plugins: [
-          new webpack.DefinePlugin({
-            "process.env": {
-              "NODE_ENV": JSON.stringify("production")
-            }
-          }),
-          new webpack.optimize.DedupePlugin(),
-          new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            compress: {
-              warnings: false
-            }
-          })
-        ]
+        mode: 'production',
+        optimization: {
+          minimize: true,
+          minimizer: [new TerserPlugin()],
+        },
       }
     },
     'webpack-dev-server': {
-      options: {
-        webpack: webpackConfig
-      },
+      options: webpackConfig,
       start: {
-        keepAlive: true,
-        contentBase: 'public',
-        webpack: {
-          devtool: 'eval',
-          debug: true
-        }
+        mode: 'development',
+        devtool: 'eval',
+        devServer: {
+          static: 'public',
+        },
       }
     },
     'open': {
