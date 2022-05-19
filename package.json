@@ -1,7 +1,7 @@
 {
   "name": "mobtimer-react",
   "version": "1.0.0",
-  "description": "A rewrite of mob-timer ReactJS",
+  "description": "A timer for mob programming and pair programming.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,23 +19,30 @@
   "bugs": {
     "url": "https://github.com/zoeesilcock/mobtimer-react/issues"
   },
+  "engines": {
+    "node": ">=16.15.0",
+    "npm": ">=8.5.5"
+  },
   "homepage": "https://github.com/zoeesilcock/mobtimer-react",
   "devDependencies": {
-    "babel-core": "^5.8.21",
-    "babel-loader": "^5.3.2",
-    "classnames": "^2.1.1",
-    "css-loader": "^0.15.6",
-    "grunt": "^0.4.5",
-    "grunt-open": "^0.2.3",
-    "grunt-sftp-deploy": "^0.2.4",
-    "grunt-webpack": "^1.0.11",
-    "moment": "~2.10.2",
-    "node-sass": "^3.2.0",
-    "react": "^0.13.1",
-    "reflux": "^0.2.7",
-    "sass-loader": "^2.0.0",
-    "style-loader": "^0.12.3",
-    "webpack": "^1.11.0",
-    "webpack-dev-server": "^1.10.1"
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.5",
+    "classnames": "^2.3.1",
+    "css-loader": "^6.7.1",
+    "grunt": "^1.5.2",
+    "grunt-open": "^0.2.4",
+    "grunt-sftp-deploy": "^0.2.5",
+    "grunt-webpack": "^5.0.0",
+    "moment": "~2.29.3",
+    "node-sass": "^7.0.1",
+    "react": "^15.7.0",
+    "react-dom": "^15.7.0",
+    "reflux": "^6.4.1",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-dev-server": "^4.9.0"
   }
 }

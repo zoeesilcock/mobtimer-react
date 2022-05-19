@@ -10,17 +10,25 @@ module.exports = {
     filename: 'app.js'
   },
   module: {
-    loaders: [
-    {
-      test: /\.scss$/,
-      loader: 'style!css!sass!'
-    },
-    {
-      test: /\.js$/,
-      loaders: [
-        'babel-loader'
-      ],
-      exclude: path.join(__dirname, 'node_modules')
-    } ]
-  }
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      }
+    ]
+  },
 };
