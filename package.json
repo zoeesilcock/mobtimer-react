@@ -4,7 +4,8 @@
   "description": "A timer for mob programming and pair programming.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "babel-loader": "^8.2.5",
     "classnames": "^2.3.1",
     "css-loader": "^6.7.1",
+    "cypress": "^9.7.0",
     "grunt": "^1.5.2",
     "grunt-open": "^0.2.4",
     "grunt-sftp-deploy": "^0.2.5",
