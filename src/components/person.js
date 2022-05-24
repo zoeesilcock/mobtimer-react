@@ -3,8 +3,12 @@ import PeopleActions from '../actions/people_actions';
 import ClassNames from 'classnames';
 
 class Person extends React.Component {
-  handleClick() {
+  remove() {
     PeopleActions.remove(this.props.index);
+  }
+
+  select() {
+    PeopleActions.selectDriver(this.props.index);
   }
 
   render() {
@@ -14,12 +18,12 @@ class Person extends React.Component {
 
     return (
       <li className={classes}>
-        <a href="#" className="remove" onClick={this.handleClick.bind(this)}>x</a>
-        <span>{this.props.name}</span>
+        <a href="#" className="remove" onClick={this.remove.bind(this)}>x</a>
+        <span onClick={this.select.bind(this)}>{this.props.name}</span>
       </li>
     );
   }
-};
+}
 
 Person.propTypes = {
   name: React.PropTypes.string.isRequired

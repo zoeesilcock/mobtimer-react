@@ -23,7 +23,6 @@ var Store = Reflux.createStore({
   },
 
   // Actions
-
   onAdd(name) {
     if (name.length > 0) {
       this.people.push(name);
@@ -48,6 +47,13 @@ var Store = Reflux.createStore({
     }
 
     this.commitPeople();
+    this.trigger();
+  },
+
+  onSelectDriver(index) {
+    this.currentDriverIndex = index;
+
+    this.commitCurrentDriver();
     this.trigger();
   },
 
