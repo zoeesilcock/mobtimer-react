@@ -17,9 +17,12 @@ class Person extends React.Component {
     });
 
     return (
-      <li className={classes}>
-        <a href="#" className="remove" onClick={this.remove.bind(this)}>x</a>
-        <span onClick={this.select.bind(this)}>{this.props.name}</span>
+      <li className={classes} onClick={this.select.bind(this)}>
+        <a href="#" className="remove" onClick={event => {
+          event.stopPropagation()
+          this.remove()
+        }}>x</a>
+        <span>{this.props.name}</span>
       </li>
     );
   }
