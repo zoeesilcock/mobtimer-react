@@ -32,6 +32,11 @@
       color: $darker;
     }
   }
+
+  li:hover {
+    cursor: pointer;
+    background-color: $dark;
+  }
 }
 
 .people-buttons {
