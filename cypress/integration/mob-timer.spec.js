@@ -32,7 +32,7 @@ describe('Mob Timer', () => {
     let drivers = ['Kent', 'Martin', 'Barry']
     
     for (const driver of drivers) {
-      cy.get('input').eq(1).type(driver)
+      cy.get('@personNameField').type(driver)
       cy.get('@addPersonButton').click()
     }
 
