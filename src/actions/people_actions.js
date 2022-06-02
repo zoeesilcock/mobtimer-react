@@ -4,7 +4,8 @@ var Actions = Reflux.createActions([
   'add',
   'remove',
   'shuffle',
-  'nextDriver'
+  'nextDriver',
+  'selectDriver'
 ]);
 
 export default Actions;
