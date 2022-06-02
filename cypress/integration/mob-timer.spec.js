@@ -5,6 +5,8 @@ describe('Mob Timer', () => {
 
     cy.get('input').eq(0).as('timeField')
     cy.get('input').eq(1).as('personNameField')
+
+    cy.contains('button', /add/i).as('addPersonButton')
   })
 
   it('should add a person to the mob', () => {
@@ -18,7 +20,7 @@ describe('Mob Timer', () => {
   it('should remove a person from the mob', () => {
     cy.get('@personNameField').type('Leia')
 
-    cy.contains(/add/i).click()
+    cy.get('@addPersonButton').click()
 
     cy.get('.remove').click()
 
@@ -30,7 +32,7 @@ describe('Mob Timer', () => {
     
     for (const driver of drivers) {
       cy.get('input').eq(1).type(driver)
-      cy.contains(/add/i).click()
+      cy.get('@addPersonButton').click()
     }
 
 
@@ -39,15 +41,6 @@ describe('Mob Timer', () => {
       cy.contains(/skip/i).click()
       cy.contains(`Grab the keyboard ${driver}.`).should('exist')
     }
-  })
-
-  it('should shuffle the mob', () => {
-    const drivers = ['Luke', 'Leia', 'Han Solo']
-
-    for (const driver of drivers) {
-      cy.get('input').eq(1).type(driver)
-      cy.contains(/add/i).click()
-    }    
   })
 
   it('should set the driving time', () => {
