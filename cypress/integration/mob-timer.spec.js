@@ -10,7 +10,7 @@ describe('Mob Timer', () => {
   })
 
   it('should add a person to the mob', () => {
-    cy.get('@personNameField').type('Luke')
+    cy.get('@personNameField').type('Kent')
     
     cy.contains(/add/i).click()
     
@@ -18,7 +18,7 @@ describe('Mob Timer', () => {
   })
 
   it('should remove a person from the mob', () => {
-    cy.get('@personNameField').type('Leia')
+    cy.get('@personNameField').type('Martin')
 
     cy.get('@addPersonButton').click()
 
@@ -28,7 +28,7 @@ describe('Mob Timer', () => {
   })
 
   it('should skip a person', () => {
-    let drivers = ['Luke', 'Leia', 'Han Solo']
+    let drivers = ['Kent', 'Martin', 'Barry']
     
     for (const driver of drivers) {
       cy.get('input').eq(1).type(driver)
@@ -36,7 +36,7 @@ describe('Mob Timer', () => {
     }
 
 
-    drivers = ['Leia', 'Han Solo', 'Luke']
+    drivers = ['Martin', 'Barry', 'Kent']
     for (const driver of drivers) {
       cy.contains(/skip/i).click()
       cy.contains(`Grab the keyboard ${driver}.`).should('exist')
