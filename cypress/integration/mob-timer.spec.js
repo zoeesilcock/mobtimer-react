@@ -2,10 +2,13 @@
 describe('Mob Timer', () => {
   beforeEach(() => {
     cy.visit('/')
+
+    cy.get('input').eq(0).as('timeField')
+    cy.get('input').eq(1).as('personNameField')
   })
 
   it('should add a person to the mob', () => {
-    cy.get('input').eq(1).type('Luke')
+    cy.get('@personNameField').type('Luke')
     
     cy.contains(/add/i).click()
     
@@ -13,7 +16,7 @@ describe('Mob Timer', () => {
   })
 
   it('should remove a person from the mob', () => {
-    cy.get('input').eq(1).type('Leia')
+    cy.get('@personNameField').type('Leia')
 
     cy.contains(/add/i).click()
 
@@ -48,13 +51,13 @@ describe('Mob Timer', () => {
   })
 
   it('should set the driving time', () => {
-    cy.get('input').eq(0).clear().type(4)
+    cy.get('@timeField').clear().type(4)
     cy.contains(/start/i).click()
     cy.contains('4:00')
   })
 
   it('should reset the driving time', () => {
-    cy.get('input').eq(0).clear().type(10)
+    cy.get('@timeField').clear().type(10)
     cy.contains(/start/i).click()
     cy.contains(/pause/i).click()
     cy.contains(/reset/i).click()
