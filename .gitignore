@@ -6,3 +6,8 @@ public/app.js
 public/app.min.js
 
 .ftppass
+
+.vscode
+
+cypress/downloads
+cypress/videos
