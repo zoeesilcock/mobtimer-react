@@ -15,6 +15,7 @@ describe('Mob Timer', () => {
     cy.contains(/add/i).click()
     
     cy.get('li').should('have.length', 1)
+    cy.get('li').eq(0).should('contain.text', 'Kent')
   })
 
   it('should remove a person from the mob', () => {
